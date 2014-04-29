@@ -1,4 +1,4 @@
 grequesocks
 ===========
 
-Grequests - Monkey Patch To Use Requesocks
+Grequests Monkey Patch To Use Requesocks

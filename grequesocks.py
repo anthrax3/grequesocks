@@ -5,10 +5,8 @@ import grequests as grequests
 
 
 def grequesocks_send(self, **kwargs):
-    merged_kwargs = {}
+    merged_kwargs = {'prefetch': kwargs.pop('stream')}
     merged_kwargs.update(self.kwargs)
-    merged_kwargs.update(kwargs)
-    del(merged_kwargs['stream'])
     self.response = self.session.request(self.method,
                                           self.url, **merged_kwargs)
     return self.response

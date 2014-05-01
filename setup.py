@@ -10,5 +10,9 @@ setup(
     description='Grequests Monkey Patch To Use Requesocks',
     author='RealGame (Tomer Zait)',
     author_email='realgam3@gmail.com',
+    install_requires=[
+        'grequests',
+        'requesocks'
+    ],
     py_modules=['grequesocks'],
 )

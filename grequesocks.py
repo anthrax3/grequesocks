@@ -1,5 +1,5 @@
 __author__ = 'RealGame (Tomer Zait)'
-__version__ = '1.1'
+__version__ = '1.2'
 
 import requesocks
 import grequests
@@ -13,10 +13,11 @@ def __grequesocks_send(self, **kwargs):
         self.response = self.session.request(self.method,
                                              self.url, **merged_kwargs)
     except Exception as error:
-        self.response = error
+        self.response = error, (self.method, self.url), merged_kwargs
+        error_res, error_args, error_kwargs = self.response
         if ('hooks' in merged_kwargs) and ('response' in merged_kwargs['hooks']):
             callback = merged_kwargs['hooks']['response']
-            callback(self.response)
+            callback(error_res, *error_args, **error_kwargs)
 
     return self.response
 

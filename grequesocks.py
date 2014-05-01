@@ -14,10 +14,9 @@ def __grequesocks_send(self, **kwargs):
                                              self.url, **merged_kwargs)
     except Exception as error:
         self.response = error, (self.method, self.url), merged_kwargs
-        error_res, error_args, error_kwargs = self.response
         if ('hooks' in merged_kwargs) and ('response' in merged_kwargs['hooks']):
             callback = merged_kwargs['hooks']['response']
-            callback(error_res, *error_args, **error_kwargs)
+            callback(error, self.method, self.url, **merged_kwargs)
 
     return self.response
 

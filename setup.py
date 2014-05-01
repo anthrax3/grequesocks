@@ -1,12 +1,13 @@
 #!/usr/bin/env python
-__author__ = 'Tomerz'
+__author__ = 'RealGame (Tomer Zait)'
 
+import grequesocks
 from distutils.core import setup
 
 
 setup(
     name='grequesocks',
-    version='1.0',
+    version=grequesocks.__version__,
     description='Grequests Monkey Patch To Use Requesocks',
     author='RealGame (Tomer Zait)',
     author_email='realgam3@gmail.com',
